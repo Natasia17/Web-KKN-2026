@@ -18,7 +18,7 @@ export default function GallerySection() {
         );
 
   return (
-    <section className="bg-cu-white py-20 px-6 md:px-16 lg:px-24 w-full flex justify-center">
+    <section className="bg-cu-white pt-32 pb-20 px-6 md:px-16 lg:px-24 w-full flex justify-center">
       <div className="max-w-7xl mx-auto w-full">
         {/* Heading */}
         <div className="text-center mb-12">

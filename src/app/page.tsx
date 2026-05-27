@@ -42,7 +42,7 @@ export default function HomePage() {
       <Hero />
 
       {/* 2 ── LAYANAN KAMI */}
-      <section className="bg-white py-20 px-6 md:px-16 lg:px-24 w-full flex justify-center">
+      <section className="bg-white pt-20 pb-20 px-6 md:px-16 lg:px-24 w-full flex justify-center relative overflow-hidden">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -59,11 +59,23 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             {services.map((s) => (
-              <ServiceCard key={s.id} service={s} />
+              <div key={s.id} className="flex flex-col w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-1.5rem)] max-w-sm">
+                <ServiceCard service={s} />
+              </div>
             ))}
           </div>
+          
+          {/* Spacer pemisah yang dijamin bekerja untuk memberi jarak ekstra di bawah kartu terakhir */}
+          <div className="w-full h-24 md:h-40"></div>
+        </div>
+
+        {/* Bottom organic curve transition to the next section */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] pointer-events-none select-none">
+          <svg className="relative block w-full h-[60px] md:h-[120px]" viewBox="0 0 1200 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0,0 C150,90 350,120 600,100 C850,80 1050,90 1200,40 L1200,120 L0,120 Z" fill="#F0F8FF"></path>
+          </svg>
         </div>
       </section>
 
