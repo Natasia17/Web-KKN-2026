@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import GaleriGrid from "@/components/GaleriGrid";
 
 export const metadata: Metadata = {
@@ -35,9 +36,50 @@ export default function GaleriPage() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16 md:py-24 bg-cu-white w-full flex justify-center">
+      <section className="py-16 md:py-24 bg-cu-white w-full flex justify-center border-b border-gray-100">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-black text-cu-black mb-2">Transformasi Premium</h2>
+            <p className="text-gray-500">Perbandingan detail sebelum dan sesudah pengerjaan kami.</p>
+          </div>
           <GaleriGrid />
+        </div>
+      </section>
+
+      {/* New WhatsApp Documentation & Testimonials Section */}
+      <section className="py-20 md:py-28 bg-gray-50/50 w-full flex justify-center relative">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 mb-3 bg-white px-4 py-1.5 rounded-full border border-gray-200 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1591DC]" />
+              <span className="text-[#2C5EAD] text-xs font-bold tracking-wider uppercase">
+                Dokumentasi & Bukti Chat
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-black text-cu-black mb-4">Galeri Pelanggan</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+              Beragam hasil kerja dan testimoni asli pelanggan kami yang diabadikan langsung melalui WhatsApp.
+            </p>
+          </div>
+
+          {/* Aesthetic CSS Grid / Masonry-ish Layout */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {Array.from({ length: 17 }).map((_, i) => (
+              <div 
+                key={i} 
+                className="group relative w-full aspect-square md:aspect-[4/5] overflow-hidden rounded-2xl bg-white shadow-sm border border-gray-100 hover:shadow-xl hover:shadow-[#1591DC]/10 transition-all duration-500"
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                <Image 
+                  src={`/gallery/docs/doc-${i + 1}.jpeg`}
+                  alt={`Dokumentasi Pelanggan ${i + 1}`}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
     </>
