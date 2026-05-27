@@ -5,24 +5,44 @@ import { services, testimonials } from "@/lib/data";
 
 const advantages = [
   {
-    icon: "🧹",
+    icon: (
+      <svg className="w-9 h-9 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+      </svg>
+    ),
     title: "Bahan Premium",
     desc: "Menggunakan cairan pembersih dan peralatan berkualitas tinggi yang aman untuk semua jenis material.",
+    bgClass: "from-cu-primary to-blue-600 shadow-blue-500/30",
   },
   {
-    icon: "⚡",
+    icon: (
+      <svg className="w-9 h-9 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
     title: "Pengerjaan Cepat",
     desc: "Proses pengerjaan efisien dengan estimasi waktu yang jelas. Sepatu & koper cepat kembali ke tanganmu.",
+    bgClass: "from-cu-accent to-cyan-500 shadow-cyan-500/30",
   },
   {
-    icon: "✅",
+    icon: (
+      <svg className="w-9 h-9 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+      </svg>
+    ),
     title: "Hasil Terjamin",
     desc: "Garansi kepuasan pelanggan. Jika hasil belum memuaskan, kami siap mengerjakan ulang tanpa biaya tambahan.",
+    bgClass: "from-green-400 to-emerald-600 shadow-emerald-500/30",
   },
   {
-    icon: "🚚",
+    icon: (
+      <svg className="w-9 h-9 mx-auto text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0M5 17H3V6a2 2 0 012-2h9v11m0 0h2m0-11l4 4v7h-2M14 5h4" />
+      </svg>
+    ),
     title: "Bisa Antar Jemput",
     desc: "Tidak sempat datang? Tenang, kami menyediakan layanan pick-up & delivery di area Surabaya dan sekitarnya.",
+    bgClass: "from-orange-400 to-amber-600 shadow-amber-500/30",
   },
 ];
 
@@ -82,8 +102,11 @@ export default function HomePage() {
       {/* 3 ── GALERI (client component) */}
       <GallerySection />
 
+      {/* Spacer pemisah / DIVIDER */}
+      <div className="w-full h-8 md:h-12 bg-cu-white"></div>
+
       {/* 4 ── KENAPA CUCIJU? */}
-      <section className="bg-cu-white py-20 px-6 md:px-16 lg:px-24 w-full flex justify-center">
+      <section className="bg-cu-white pt-10 pb-20 px-6 md:px-16 lg:px-24 w-full flex justify-center">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -100,16 +123,26 @@ export default function HomePage() {
               kami
             </p>
           </div>
-
+          
+          {/* Spacer / DIVIDER */}
+          <div className="w-full h-3 md:h-4"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {advantages.map((a) => (
               <div
                 key={a.title}
-                className="text-center p-8 rounded-2xl bg-white border border-cu-light/80 hover:border-cu-primary/30 hover:shadow-lg hover:shadow-cu-primary/5 hover:-translate-y-1 transition-all duration-300"
+                className="group relative flex flex-col items-center text-center p-8 rounded-3xl bg-white border border-cu-light/50 hover:border-transparent transition-all duration-300"
               >
-                <div className="text-5xl mb-5">{a.icon}</div>
-                <h3 className="font-bold text-lg text-cu-black">{a.title}</h3>
-                <p className="text-sm text-gray-400 mt-2 leading-relaxed">
+                {/* Subtle gradient border and shadow on hover */}
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-cu-light/40 to-white -z-10 group-hover:shadow-2xl group-hover:shadow-cu-primary/5 transition-all duration-500" />
+                <div className="absolute inset-0 rounded-3xl ring-2 ring-transparent group-hover:ring-cu-primary/10 transition-all duration-300 pointer-events-none" />
+                
+                {/* Icon Container */}
+                <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl flex items-center justify-center bg-gradient-to-br ${a.bgClass} shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                  {a.icon}
+                </div>
+                
+                <h3 className="font-extrabold text-lg text-cu-black mb-3">{a.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed group-hover:text-gray-600 transition-colors duration-300">
                   {a.desc}
                 </p>
               </div>
@@ -118,8 +151,13 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Spacer / DIVIDER */}
+      <div className="w-full h-10 md:h-12"></div> {/*  bg-white */}
+
+      <div className="w-full bg-white h-5 md:h-8"></div>
+
       {/* 5 ── TESTIMONI */}
-      <section className="bg-white py-20 px-6 md:px-16 lg:px-24 w-full flex justify-center">
+      <section className="bg-white pb-20 px-6 md:px-16 lg:px-24 w-full flex justify-center">
         <div className="max-w-7xl mx-auto w-full">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-2 mb-3">
@@ -131,11 +169,14 @@ export default function HomePage() {
             <h2 className="text-4xl md:text-5xl font-black text-cu-black">
               Apa Kata Mereka?
             </h2>
+              <div className="w-full h-3 md:h-1"></div>
             <p className="text-gray-400 mt-3 text-center w-full block">
               Testimoni langsung dari pelanggan setia CUCIJU
             </p>
           </div>
 
+          {/* Spacer / DIVIDER */}
+          <div className="w-full h-3 md:h-4"></div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {testimonials.map((t) => (
               <div
@@ -160,6 +201,8 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+          {/* Spacer / DIVIDER */}
+          <div className="w-full h-3 md:h-10"></div>
         </div>
       </section>
 
@@ -167,15 +210,18 @@ export default function HomePage() {
       <section className="relative bg-cu-dark py-20 px-6 md:px-16 lg:px-24 overflow-hidden w-full flex justify-center">
         {/* Decorative orbs */}
         <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-cu-primary/20 blur-[100px]" />
+        
         <div className="absolute bottom-0 left-0 w-60 h-60 rounded-full bg-cu-accent/15 blur-[80px]" />
-
-        <div className="relative z-10 max-w-3xl mx-auto text-center w-full">
-          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight">
+        <div className="relative z-10 max-w-3xl mx-auto flex flex-col items-center text-center w-full">
+                  
+        {/* Spacer / DIVIDER */}
+          {/* <div className="w-full h-3 md:h-3"></div> */}
+          <h2 className="text-4xl md:text-5xl font-black text-white leading-tight text-center">
             Siap Bersihkan
             <br />
             Sepatumu<span className="text-cu-accent"> ?</span>
           </h2>
-          <p className="text-blue-200/70 mt-4 text-lg max-w-md mx-auto">
+          <p className="text-blue-200/70 mt-4 text-lg max-w-md text-center" style={{ textAlign: 'center' }}>
             Hubungi kami sekarang via WhatsApp dan dapatkan penawaran terbaik.
           </p>
           <a
@@ -189,6 +235,7 @@ export default function HomePage() {
             </svg>
             Chat WhatsApp Sekarang
           </a>
+            <div className="w-full h-3 md:h-3"></div>
         </div>
       </section>
     </>
