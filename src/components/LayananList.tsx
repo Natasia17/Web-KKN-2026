@@ -24,10 +24,10 @@ export default function LayananList() {
     return s.category === filter;
   });
 
-  const categories: { value: FilterType; label: string }[] = [
-    { value: "semua", label: "Semua Layanan" },
-    { value: "sepatu", label: "Cuci & Perawatan Sepatu" },
-    { value: "koper", label: "Reparasi & Servis Koper" },
+  const categories: { value: FilterType; label: string; icon: string }[] = [
+    { value: "semua", label: "Semua Layanan", icon: "📋" },
+    { value: "sepatu", label: "Cuci & Perawatan Sepatu", icon: "👟" },
+    { value: "koper", label: "Reparasi & Servis Koper", icon: "🧳" },
   ];
 
   // const count = filteredServices.length; // Unused
@@ -35,20 +35,48 @@ export default function LayananList() {
   return (
     <div>
       {/* Category Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-        {categories.map((cat) => (
-          <button
-            key={cat.value}
-            onClick={() => setFilter(cat.value)}
-            className={`px-6 py-3 rounded-full text-sm font-bold border transition-all duration-300 ${
-              filter === cat.value
-                ? "bg-cu-primary text-white border-cu-primary shadow-lg shadow-cu-primary/20 scale-105"
-                : "bg-white text-gray-600 border-cu-light hover:bg-cu-light/20 hover:text-cu-dark hover:border-cu-primary/30"
-            }`}
-          >
-            {cat.label}
-          </button>
-        ))}
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "12px",
+          marginBottom: "48px",
+        }}
+      >
+        {categories.map((cat) => {
+          const isActive = filter === cat.value;
+          return (
+            <button
+              key={cat.value}
+              onClick={() => setFilter(cat.value)}
+              style={{
+                padding: "12px 28px",
+                borderRadius: "9999px",
+                fontSize: "0.8125rem",
+                fontWeight: 700,
+                border: isActive
+                  ? "2px solid #2979D4"
+                  : "2px solid #C8E6FA",
+                backgroundColor: isActive ? "#2979D4" : "#ffffff",
+                color: isActive ? "#ffffff" : "#6B7280",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                boxShadow: isActive
+                  ? "0 4px 16px rgba(41,121,212,0.25)"
+                  : "none",
+                transform: isActive ? "scale(1.05)" : "scale(1)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <span style={{ fontSize: "1rem" }}>{cat.icon}</span>
+              {cat.label}
+            </button>
+          );
+        })}
       </div>
 
       {/* Services Flexbox */}
@@ -60,5 +88,7 @@ export default function LayananList() {
         ))}
       </div>
     </div>
+
+    
   );
 }

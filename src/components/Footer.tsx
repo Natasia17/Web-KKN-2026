@@ -5,9 +5,12 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050505] text-white pt-48 pb-8 md:pb-12 w-full flex justify-center relative">
+    <footer 
+      className="bg-[#050505] text-white w-full flex justify-center relative"
+      style={{ paddingTop: "80px", paddingBottom: "48px" }}
+    >
       <div className="max-w-7xl mx-auto w-full px-6 md:px-12 lg:px-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16" style={{ marginTop: "16px" }}>
           
           {/* Brand & Contact Information (Span 5) */}
           <div className="lg:col-span-5 space-y-6 pr-0 lg:pr-8">
@@ -58,10 +61,24 @@ export default function Footer() {
 
           {/* Quick Links Column */}
           <div className="lg:col-span-2 lg:col-start-7">
-            <h4 className="font-heading font-semibold text-sm text-white mb-6 tracking-wider">
-              Tautan Cepat
-            </h4>
-            <ul className="space-y-4 text-sm">
+            <div style={{ marginBottom: "28px" }}>
+              <h4
+                style={{
+                  fontFamily: "var(--font-heading), sans-serif",
+                  fontWeight: 800,
+                  fontSize: "0.875rem",
+                  color: "#ffffff",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  display: "block",
+                  marginBottom: "12px",
+                }}
+              >
+                Tautan Cepat
+              </h4>
+              <div style={{ width: "32px", height: "3px", backgroundColor: "#2979D4", borderRadius: "2px" }} />
+            </div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }} className="text-sm">
               {[
                 { href: "/", label: "Beranda" },
                 { href: "/layanan", label: "Layanan" },
@@ -80,10 +97,24 @@ export default function Footer() {
 
           {/* Social Links Column */}
           <div className="lg:col-span-2">
-            <h4 className="font-heading font-semibold text-sm text-white mb-6 tracking-wider">
-              Sosial Media
-            </h4>
-            <ul className="space-y-4 text-sm">
+            <div style={{ marginBottom: "28px" }}>
+              <h4
+                style={{
+                  fontFamily: "var(--font-heading), sans-serif",
+                  fontWeight: 800,
+                  fontSize: "0.875rem",
+                  color: "#ffffff",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  display: "block",
+                  marginBottom: "12px",
+                }}
+              >
+                Sosial Media
+              </h4>
+              <div style={{ width: "32px", height: "3px", backgroundColor: "#2979D4", borderRadius: "2px" }} />
+            </div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }} className="text-sm">
               {[
                 { href: "#", label: "Instagram" },
                 { href: "https://wa.me/6281336466614", label: "WhatsApp" },
@@ -100,10 +131,24 @@ export default function Footer() {
 
           {/* Legal Links Column */}
           <div className="lg:col-span-2">
-            <h4 className="font-heading font-semibold text-sm text-white mb-6 tracking-wider">
-              Legal
-            </h4>
-            <ul className="space-y-4 text-sm">
+            <div style={{ marginBottom: "28px" }}>
+              <h4
+                style={{
+                  fontFamily: "var(--font-heading), sans-serif",
+                  fontWeight: 800,
+                  fontSize: "0.875rem",
+                  color: "#ffffff",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  display: "block",
+                  marginBottom: "12px",
+                }}
+              >
+                Legal
+              </h4>
+              <div style={{ width: "32px", height: "3px", backgroundColor: "#2979D4", borderRadius: "2px" }} />
+            </div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }} className="text-sm">
               {[
                 { href: "#", label: "Syarat & Ketentuan" },
                 { href: "#", label: "Kebijakan Privasi" },

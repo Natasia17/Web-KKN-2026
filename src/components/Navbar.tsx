@@ -319,28 +319,33 @@ export default function Navbar() {
             })}
           </nav>
 
-          {/* Desktop Brand Info (Only shown on desktop like in reference screenshot) */}
-          <div className="hidden md:block space-y-6">
-            <div className="flex justify-center w-full"> {/* CENTER POSITION */}
-              <div className="relative overflow-hidden w-16 h-16 rounded-2xl bg-cu-light/20 p-2 border border-gray-100 flex items-center justify-center">
+          {/* Desktop Brand Info & Details */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "32px", paddingBottom: "24px" }} className="hidden md:flex">
+            
+            {/* Header & Logo */}
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
+              <div className="relative overflow-hidden w-20 h-20 rounded-2xl bg-white shadow-lg shadow-cu-primary/10 border border-gray-100 flex items-center justify-center">
                 <Image
                   src="/logo-cuciju.png"
                   alt="CUCIJU Logo"
-                  width={50}
-                  height={50}
-                  className="object-contain animate-float"
+                  width={60}
+                  height={60}
+                  className="object-contain"
                 />
               </div>
+              <p className="text-xs text-gray-500 text-center leading-relaxed font-medium px-2">
+                Jasa cuci sepatu dan reparasi koper profesional di Surabaya, mengutamakan kualitas, kecepatan, dan kepuasan Anda.
+              </p>
             </div>
             
-            <p className="text-xs text-gray-500 text-center leading-relaxed font-medium">
-              Discover professional shoe care and luggage repair services crafted with quality materials and superior craftsmanship guaranteeing durability and style for every step.
-            </p>
-
-            {/* Gallery Grid (6 thumbnails matching reference widget) */}
-            <div className="space-y-3">
-              <p className="font-extrabold uppercase text-[10px] text-cu-primary tracking-widest text-center">Hasil Perawatan Kami</p>
-              <div className="grid grid-cols-3 gap-2">
+            {/* Gallery Grid */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <div style={{ height: "1px", flex: 1, backgroundColor: "#f3f4f6" }}></div>
+                <p className="font-extrabold uppercase text-[10px] text-cu-primary tracking-widest text-center">Hasil Perawatan Kami</p>
+                <div style={{ height: "1px", flex: 1, backgroundColor: "#f3f4f6" }}></div>
+              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
                 {[
                   "/gallery/after-sepatu-1.png",
                   "/gallery/after-sepatu-2.png",
@@ -349,37 +354,53 @@ export default function Navbar() {
                   "/gallery/after-koper-2.png",
                   "/gallery/after-koper-3.png"
                 ].map((src, idx) => (
-                  <div key={idx} className="relative aspect-square rounded-lg overflow-hidden border border-gray-100 hover:scale-105 hover:border-cu-accent transition-all duration-200 cursor-pointer">
+                  <div key={idx} className="relative aspect-square rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md hover:border-cu-accent transition-all duration-300 cursor-pointer group">
                     <Image
                       src={src}
                       alt={`Gallery thumbnail ${idx}`}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
+                    <div className="absolute inset-0 bg-cu-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                 ))}
               </div>
             </div>
-          </div>
 
-          {/* Address Info Section */}
-          <div className="space-y-2.5">
-            <p className="font-extrabold uppercase text-[10px] text-cu-primary tracking-widest">Address :</p>
-            <div className="text-xs text-gray-500 space-y-1.5 leading-relaxed font-medium">
-              <p><span className="font-bold text-cu-black">Address:</span> Dharmahusada, Gubeng</p>
-              <p><span className="font-bold text-cu-black">City:</span> Surabaya (Jawa Timur)</p>
-              <p><span className="font-bold text-cu-black">Country:</span> United States</p>
+            {/* Address Info Section */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <p className="font-extrabold uppercase text-[10px] text-cu-primary tracking-widest border-l-2 border-cu-accent pl-2">Alamat & Lokasi</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }} className="text-[13px] text-gray-500 font-medium">
+                <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                  <svg className="w-4 h-4 text-cu-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                  <p><span className="font-bold text-cu-dark">Address:</span> Dharmahusada, Gubeng</p>
+                </div>
+                <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                  <svg className="w-4 h-4 text-cu-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"></path></svg>
+                  <p><span className="font-bold text-cu-dark">City:</span> Surabaya, Jawa Timur</p>
+                </div>
+                <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                  <svg className="w-4 h-4 text-cu-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                  <p><span className="font-bold text-cu-dark">Country:</span> Indonesia</p>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Contact Info Section */}
-          <div className="space-y-2.5">
-            <p className="font-extrabold uppercase text-[10px] text-cu-primary tracking-widest">Info :</p>
-            <div className="text-xs text-gray-500 space-y-1.5 leading-relaxed font-medium">
-              <p><span className="font-bold text-cu-black">Support:</span> info@cuciju.sby</p>
-              <p><span className="font-bold text-cu-black">Email:</span> cuciju.sby@gmail.com</p>
-              <p><span className="font-bold text-cu-black">Phone:</span> +62 813-3646-6614</p>
+            {/* Contact Info Section */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+              <p className="font-extrabold uppercase text-[10px] text-cu-primary tracking-widest border-l-2 border-cu-accent pl-2">Kontak Info</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "8px" }} className="text-[13px] text-gray-500 font-medium">
+                <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                  <svg className="w-4 h-4 text-cu-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                  <p><span className="font-bold text-cu-dark">Email:</span> cuciju.sby@gmail.com</p>
+                </div>
+                <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+                  <svg className="w-4 h-4 text-cu-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                  <p><span className="font-bold text-cu-dark">Phone:</span> +62 813-3646-6614</p>
+                </div>
+              </div>
             </div>
+
           </div>
 
         </div>
@@ -408,7 +429,7 @@ export default function Navbar() {
             </a>
           </div>
           <div className="text-[9px] text-gray-400 text-center leading-normal">
-            &copy; {new Date().getFullYear()} CUCIJU.sby · KKN Universitas Widya Kartika Kelompok 2 Surabaya.
+            &copy; {new Date().getFullYear()} CUCIJU.sby · KKN Universitas Widya Kartika Surabaya.
           </div>
         </div>
       </div>
