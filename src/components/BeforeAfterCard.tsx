@@ -28,7 +28,7 @@ export default function BeforeAfterCard({
             sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 16vw"
             className="object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <span className="absolute left-0 bottom-0 bg-red-500/80 text-white text-xs font-bold px-2 py-0.5 rounded-tr-md z-10">
+          <span className="absolute left-0 bottom-0 bg-[#185fa4]/90 text-white text-xs font-bold px-2 py-0.5 rounded-tr-md z-10">
             SEBELUM
           </span>
         </div>
