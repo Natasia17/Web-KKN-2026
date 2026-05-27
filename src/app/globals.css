@@ -1,26 +1,80 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* =============================================
+   CUCIJU — Tailwind v4 Theme Registration
+   ============================================= */
+@theme {
+  /* Brand Colors */
+  --color-cu-dark: #1B3FA0;
+  --color-cu-primary: #2979D4;
+  --color-cu-accent: #29B6F6;
+  --color-cu-light: #C8E6FA;
+  --color-cu-white: #F0F8FF;
+  --color-cu-black: #0A0F1E;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* Font Families */
+  --font-heading: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  --font-body: var(--font-inter), "Inter", sans-serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Animations */
+  --animate-marquee: marquee 45s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 45s linear infinite;
+  --animate-fade-up: fadeUp 0.6s ease-out forwards;
+  --animate-float: float 3s ease-in-out infinite;
+
+  /* Keyframes */
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-reverse {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+
+  @keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+
+/* =============================================
+   Base Styles
+   ============================================= */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #F0F8FF;
+  color: #0A0F1E;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background: #29B6F6;
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #C8E6FA; }
+::-webkit-scrollbar-thumb { background: #2979D4; border-radius: 3px; }
