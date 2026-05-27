@@ -14,6 +14,7 @@ export default function LayananList() {
 
   useEffect(() => {
     if (catParam && (catParam === "semua" || catParam === "sepatu" || catParam === "koper")) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setFilter(catParam);
     }
   }, [catParam]);
@@ -29,7 +30,7 @@ export default function LayananList() {
     { value: "koper", label: "Reparasi & Servis Koper" },
   ];
 
-  const count = filteredServices.length;
+  // const count = filteredServices.length; // Unused
 
   return (
     <div>

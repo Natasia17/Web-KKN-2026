@@ -120,6 +120,8 @@ export default function Navbar() {
                   <span className="font-heading font-extrabold text-base md:text-lg text-cu-dark tracking-tight transition-colors duration-200 leading-tight">
                     CUCIJU<span className="text-cu-primary group-hover:text-cu-accent transition-colors duration-200">.sby</span>
                   </span>
+                  {/* Spacer / DIVIDER */}
+                  <div className="w-full h-0.5 md:h-1.2"></div>
                   <span className="text-[7.5px] md:text-[8.5px] font-extrabold text-gray-400 tracking-wider uppercase mt-0.5 whitespace-nowrap">
                     KKN UNIVERSITAS WIDYA KARTIKA 2026
                   </span>
