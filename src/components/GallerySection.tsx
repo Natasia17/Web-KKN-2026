@@ -56,13 +56,13 @@ export default function GallerySection() {
             <button
               key={f}
               onClick={() => setActive(f)}
-              className={`px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+              className={`rounded-full text-sm font-bold transition-all duration-300 ${
                 active === f
-                  // ? "bg-[#d90000] text-white shadow-md border border-[#d90000]"
-                  // : "bg-white border border-gray-200 text-gray-700 hover:border-gray-300 hover:shadow-sm"
                   ? "bg-cu-dark text-white shadow-sm"
                   : "bg-white border border-cu-light text-gray-500 hover:border-cu-primary/30 hover:text-cu-dark"
               }`}
+              style={{ padding: '10px 28px' }}
+              // Settingan layout button agar lebih sesuai
             >
               {f}
             </button>
@@ -92,7 +92,9 @@ export default function GallerySection() {
           <Link
             href="/galeri"
             prefetch={false}
-            className="inline-block bg-[#333333] hover:bg-[#222222] text-white text-sm font-medium px-6 py-3 rounded-lg transition-colors duration-300"
+            className="inline-block bg-cu-dark hover:bg-cu-primary text-white text-sm font-bold rounded-full transition-colors duration-300 shadow-md hover:shadow-lg"
+            style={{ padding: '16px 48px' }}
+            // Settingan layout button agar lebih sesuai
           >
             Lihat Semua Galeri &rarr;
           </Link>

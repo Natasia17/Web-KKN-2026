@@ -86,11 +86,13 @@ export default function BeforeAfterCard({
             href={`https://wa.me/6281336466614?text=Halo%20CUCIJU%2C%20saya%20mau%20tanya%20tentang%20hasil%20kerja%20${encodeURIComponent(title)}`} 
             target="_blank" 
             rel="noreferrer" 
-            className="inline-flex items-center text-xs font-bold text-cu-primary hover:text-cu-dark transition-colors group/link bg-cu-primary/5 hover:bg-cu-primary/10 px-3 py-1.5 rounded-full"
+            className="inline-flex items-center text-xs font-bold text-cu-primary hover:text-cu-dark transition-colors group/link bg-cu-primary/5 hover:bg-cu-primary/10 rounded-full"
+            style={{ padding: '12px 24px' }}
+            // Settingan  layout button agar lebih sesuai
           >
             Lihat Detail 
             <svg 
-              className="w-3.5 h-3.5 ml-1 transition-transform duration-300 group-hover/link:translate-x-1" 
+              className="w-3.5 h-3.5 ml-2 transition-transform duration-300 group-hover/link:translate-x-1" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
