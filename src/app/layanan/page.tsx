@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import LayananList from "@/components/LayananList";
 
 export const metadata: Metadata = {
@@ -37,7 +38,13 @@ export default function LayananPage() {
       {/* Services Grid Section */}
       <section className="py-16 md:py-24 bg-cu-white w-full flex justify-center">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
-          <LayananList />
+          <Suspense fallback={
+            <div className="flex justify-center items-center min-h-[300px]">
+              <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-cu-primary"></div>
+            </div>
+          }>
+            <LayananList />
+          </Suspense>
         </div>
       </section>
     </>

@@ -1,13 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { services } from "@/lib/data";
 import ServiceCard from "./ServiceCard";
 
 type FilterType = "semua" | "sepatu" | "koper";
 
 export default function LayananList() {
+  const searchParams = useSearchParams();
+  const catParam = searchParams.get("cat") as FilterType | null;
   const [filter, setFilter] = useState<FilterType>("semua");
+
+  useEffect(() => {
+    if (catParam && (catParam === "semua" || catParam === "sepatu" || catParam === "koper")) {
+      setFilter(catParam);
+    }
+  }, [catParam]);
 
   const filteredServices = services.filter((s) => {
     if (filter === "semua") return true;
@@ -19,6 +28,8 @@ export default function LayananList() {
     { value: "sepatu", label: "Cuci & Perawatan Sepatu" },
     { value: "koper", label: "Reparasi & Servis Koper" },
   ];
+
+  const count = filteredServices.length;
 
   return (
     <div>
@@ -39,10 +50,12 @@ export default function LayananList() {
         ))}
       </div>
 
-      {/* Services Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      {/* Services Flexbox */}
+      <div className="flex flex-wrap justify-center gap-6 md:gap-8">
         {filteredServices.map((s) => (
-          <ServiceCard key={s.id} service={s} />
+          <div key={s.id} className="flex flex-col w-full sm:w-[calc(50%-1.5rem)] lg:w-[calc(33.333%-2rem)] max-w-sm">
+            <ServiceCard service={s} />
+          </div>
         ))}
       </div>
     </div>
