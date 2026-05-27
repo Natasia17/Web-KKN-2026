@@ -139,22 +139,27 @@ export default function Navbar() {
           <div className="flex-1 flex justify-end items-center gap-3 z-10">
             <Link
               href="/kontak"
-              className="hidden md:inline-flex items-center gap-2 bg-cu-dark text-white font-bold text-xs md:text-sm px-6 py-2.5 rounded-full hover:bg-cu-primary hover:shadow-md hover:shadow-cu-primary/20 hover:-translate-y-[1px] active:translate-y-0 transition-all duration-200"
+              className="hidden md:inline-flex items-center gap-2 bg-gradient-to-r from-cu-dark to-cu-primary text-white font-heading font-extrabold text-xs md:text-sm px-6 py-3 rounded-xl transition-all duration-300 hover:from-cu-primary hover:to-cu-accent hover:shadow-lg hover:shadow-cu-primary/20 hover:-translate-y-0.5 active:translate-y-0 relative overflow-hidden group/btn"
             >
-              <svg
-                className="w-4 h-4 text-cu-accent"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 0 1-7.108-7.108c-.115-.44.05-.927.426-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-                />
-              </svg>
-              Hubungi Kami
+              {/* Glossy hover streak effect */}
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000 ease-out" />
+              
+              <span className="relative z-10 flex items-center gap-2">
+                <svg
+                  className="w-4 h-4 text-cu-light transition-transform duration-300 group-hover/btn:rotate-12"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 0 1-7.108-7.108c-.115-.44.05-.927.426-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                  />
+                </svg>
+                <span>Hubungi Kami</span>
+              </span>
             </Link>
 
             {/* Mobile Hamburger */}
@@ -213,22 +218,27 @@ export default function Navbar() {
           <Link
             href="/kontak"
             onClick={handleLinkClick}
-            className="mt-3 flex items-center justify-center gap-2 bg-cu-dark text-white font-bold text-base py-3.5 rounded-xl hover:bg-cu-primary transition-colors duration-200"
+            className="mt-3 flex items-center justify-center gap-2 bg-gradient-to-r from-cu-dark to-cu-primary text-white font-heading font-extrabold text-sm py-3.5 rounded-xl transition-all duration-300 hover:from-cu-primary hover:to-cu-accent hover:shadow-lg hover:shadow-cu-primary/25 hover:-translate-y-0.5 active:translate-y-0 relative overflow-hidden group/btn-mobile"
           >
-            <svg
-              className="w-4.5 h-4.5 text-cu-accent"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 0 1-7.108-7.108c-.115-.44.05-.927.426-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
-              />
-            </svg>
-            Hubungi Kami
+            {/* Glossy hover streak effect */}
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn-mobile:translate-x-full transition-transform duration-1000 ease-out" />
+            
+            <span className="relative z-10 flex items-center gap-2">
+              <svg
+                className="w-4 h-4 text-cu-light transition-transform duration-300 group-hover/btn-mobile:rotate-12"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 0 1-7.108-7.108c-.115-.44.05-.927.426-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z"
+                />
+              </svg>
+              <span>Hubungi Kami</span>
+            </span>
           </Link>
         </div>
       </div>
