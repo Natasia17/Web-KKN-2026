@@ -161,8 +161,8 @@ export const galleryItems: GalleryItem[] = [
     id: "gallery-2",
     title: "Repaint Sepatu Kulit",
     category: "sepatu",
-    beforeImage: "/gallery/before-sepatu-2.png",
-    afterImage: "/gallery/after-sepatu-2.png",
+    beforeImage: "/gallery/before-sepatu-2-v2.png",
+    afterImage: "/gallery/after-sepatu-2-v2.png",
     description:
       "Sepatu kulit formal yang pudar dan tergores di-repaint ulang sehingga tampil elegan seperti baru.",
     date: "2026-05-15",
@@ -171,8 +171,8 @@ export const galleryItems: GalleryItem[] = [
     id: "gallery-3",
     title: "Unyellowing Sol Sepatu",
     category: "sepatu",
-    beforeImage: "/gallery/before-sepatu-3.png",
-    afterImage: "/gallery/after-sepatu-3.png",
+    beforeImage: "/gallery/before-sepatu-3-v2.png",
+    afterImage: "/gallery/after-sepatu-3-v2.png",
     description:
       "Sol sepatu yang kuning akibat oksidasi berhasil diputihkan kembali melalui proses unyellowing profesional.",
     date: "2026-05-20",
@@ -191,8 +191,8 @@ export const galleryItems: GalleryItem[] = [
     id: "gallery-5",
     title: "Reparasi Roda Koper",
     category: "koper",
-    beforeImage: "/gallery/before-koper-2.png",
-    afterImage: "/gallery/after-koper-2.png",
+    beforeImage: "/gallery/before-koper-2-v2.png",
+    afterImage: "/gallery/after-koper-2-v2.png",
     description:
       "Roda koper yang macet dan aus diganti dengan roda baru berkualitas. Koper kembali mulus digunakan traveling.",
     date: "2026-05-12",
@@ -201,8 +201,8 @@ export const galleryItems: GalleryItem[] = [
     id: "gallery-6",
     title: "Reparasi Ritsleting Koper",
     category: "koper",
-    beforeImage: "/gallery/before-koper-3.png",
-    afterImage: "/gallery/after-koper-3.png",
+    beforeImage: "/gallery/before-koper-3-v2.png",
+    afterImage: "/gallery/after-koper-3-v2.png",
     description:
       "Ritsleting koper yang giginya patah diganti baru. Hasil rapi, koper bisa dibuka-tutup dengan lancar.",
     date: "2026-05-18",

@@ -167,19 +167,35 @@ export default function Navbar() {
 
                       {/* Dropdown Menu on Hover */}
                       {hasDropdown && (
-                        <div className="absolute top-full left-0 mt-0 w-52 bg-white border border-gray-200 shadow-sm opacity-0 translate-y-2 pointer-events-none group-hover/nav-item:opacity-100 group-hover/nav-item:translate-y-0 group-hover/nav-item:pointer-events-auto transition-all duration-300 z-50 rounded-none">
-                          <ul className="flex flex-col">
-                            {link.dropdown?.map((sub, idx) => (
-                              <li key={sub.href} className={idx !== link.dropdown!.length - 1 ? "border-b border-gray-200" : ""}>
-                                <Link
-                                  href={sub.href}
-                                  className="text-[13px] font-semibold px-5 py-3.5 text-cu-dark hover:text-cu-primary hover:bg-gray-50 block transition-colors"
-                                >
-                                  {sub.label}
-                                </Link>
-                              </li>
-                            ))}
-                          </ul>
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 opacity-0 translate-y-2 pointer-events-none group-hover/nav-item:opacity-100 group-hover/nav-item:translate-y-0 group-hover/nav-item:pointer-events-auto transition-all duration-300 z-50 w-56">
+                          <div 
+                            style={{ 
+                              backgroundColor: "white", 
+                              borderRadius: "16px", 
+                              boxShadow: "0 10px 25px -5px rgba(27,63,160,0.1), 0 8px 10px -6px rgba(27,63,160,0.1)", 
+                              border: "1px solid #f3f4f6",
+                              padding: "8px",
+                              position: "relative"
+                            }}
+                          >
+                            {/* Decorative Triangle */}
+                            <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-t border-l border-gray-100 transform rotate-45"></div>
+                            
+                            <ul className="flex flex-col relative z-10 gap-1">
+                              {link.dropdown?.map((sub, idx) => (
+                                <li key={sub.href}>
+                                  <Link
+                                    href={sub.href}
+                                    style={{ borderRadius: "10px" }}
+                                    className="text-[13px] font-semibold px-4 py-2.5 text-gray-600 hover:text-cu-primary hover:bg-[#f0f7ff] block transition-all duration-200 flex items-center gap-2 group/sub"
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-cu-primary opacity-0 group-hover/sub:opacity-100 transition-opacity duration-200 flex-shrink-0"></span>
+                                    <span className="translate-x-[-10px] group-hover/sub:translate-x-0 transition-transform duration-200">{sub.label}</span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
                       )}
                     </li>
@@ -283,31 +299,56 @@ export default function Navbar() {
         <div className="flex-grow overflow-y-auto my-4 pr-1 space-y-8 scrollbar-thin select-none">
           
           {/* Navigation Links inside Drawer (Only shown on mobile/tablet for usability) */}
-          <nav className="md:hidden flex flex-col gap-3">
-            {navLinks.map((link) => {
+          {/* Navigation Links inside Drawer (Only shown on mobile/tablet for usability) */}
+          {/* SNEAKERI Reference Style */}
+          <nav className="md:hidden flex flex-col w-full -mx-6 mb-8" style={{ width: "calc(100% + 48px)", marginTop: "-16px" }}>
+            {navLinks.map((link, idx) => {
               const active = isActive(link.href);
               return (
-                <div key={link.href} className="flex flex-col">
+                <div key={link.href} className="w-full flex flex-col">
                   <Link
                     href={link.href}
-                    onClick={() => setSidebarOpen(false)}
-                    className={`text-base font-black tracking-tight py-2.5 px-4 rounded-xl transition-all duration-200 ${
-                      active
-                        ? "text-cu-primary bg-cu-light/25 pl-6"
-                        : "text-cu-black hover:text-cu-primary hover:bg-gray-50 hover:pl-6"
-                    }`}
+                    onClick={() => {
+                      if (!link.dropdown) setSidebarOpen(false);
+                    }}
+                    style={{
+                      padding: "18px 24px",
+                      backgroundColor: active ? "#050505" : "#ffffff",
+                      color: active ? "#ffffff" : "#050505",
+                      fontWeight: 800,
+                      fontSize: "15px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      borderTop: idx === 0 ? "1px solid #e5e7eb" : "none",
+                      borderBottom: "1px solid #e5e7eb"
+                    }}
+                    className="transition-colors"
                   >
-                    {link.label}
+                    <span>{link.label}</span>
+                    {link.dropdown && (
+                      <svg className={`w-4 h-4 transition-transform ${active ? 'text-white' : 'text-gray-400'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
                   </Link>
-                  {/* Sublinks in sidebar */}
+                  {/* Mobile Sublinks */}
                   {link.dropdown && (
-                    <div className="pl-8 flex flex-col gap-2 mt-1 border-l border-gray-100 ml-6">
+                    <div style={{ display: "flex", flexDirection: "column", backgroundColor: "#fafafa" }}>
                       {link.dropdown?.map((sub) => (
                         <Link
                           key={sub.href}
                           href={sub.href}
                           onClick={() => setSidebarOpen(false)}
-                          className="text-xs font-bold text-gray-400 hover:text-cu-primary transition-colors py-1"
+                          style={{
+                            padding: "16px 24px 16px 40px",
+                            fontSize: "13px",
+                            fontWeight: 700,
+                            color: "#4b5563",
+                            borderBottom: "1px solid #e5e7eb",
+                            display: "block"
+                          }}
+                          className="hover:text-black transition-colors"
                         >
                           {sub.label}
                         </Link>
@@ -317,10 +358,27 @@ export default function Navbar() {
                 </div>
               );
             })}
+
+            {/* Mobile Banner (Matches Reference Screenshot) */}
+            <div className="w-full relative overflow-hidden" style={{ height: "240px" }}>
+              <Image
+                src="/gallery/layanan-hero.png"
+                alt="Promo Banner"
+                fill
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-cu-black/50 flex flex-col items-center justify-center text-center p-6">
+                <h3 className="text-white font-heading font-black text-3xl tracking-wide mb-2" style={{ textShadow: "0 2px 10px rgba(0,0,0,0.5)" }}>Layanan Kami</h3>
+                <div className="flex items-center gap-2">
+                  <span className="text-cu-accent text-lg">*</span>
+                  <p className="text-white/90 text-[10px] font-bold tracking-[0.2em] uppercase">Solusi Premium Sepatu & Koper</p>
+                </div>
+              </div>
+            </div>
           </nav>
 
           {/* Desktop Brand Info & Details */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "32px", paddingBottom: "24px" }} className="hidden md:flex">
+          <div style={{ flexDirection: "column", gap: "32px", paddingBottom: "24px" }} className="hidden md:flex">
             
             {/* Header & Logo */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
@@ -348,11 +406,11 @@ export default function Navbar() {
               <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
                 {[
                   "/gallery/after-sepatu-1.png",
-                  "/gallery/after-sepatu-2.png",
-                  "/gallery/after-sepatu-3.png",
+                  "/gallery/after-sepatu-2-v2.png",
+                  "/gallery/after-sepatu-3-v2.png",
                   "/gallery/after-koper-1.png",
-                  "/gallery/after-koper-2.png",
-                  "/gallery/after-koper-3.png"
+                  "/gallery/after-koper-2-v2.png",
+                  "/gallery/after-koper-3-v2.png"
                 ].map((src, idx) => (
                   <div key={idx} className="relative aspect-square rounded-xl overflow-hidden shadow-sm border border-gray-100 hover:shadow-md hover:border-cu-accent transition-all duration-300 cursor-pointer group">
                     <Image
