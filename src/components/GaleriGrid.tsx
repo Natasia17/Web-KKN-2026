@@ -14,34 +14,68 @@ export default function GaleriGrid() {
     return item.category === filter;
   });
 
-  const categories: { value: CategoryType; label: string }[] = [
-    { value: "semua", label: "Semua Hasil Kerja" },
-    { value: "sepatu", label: "Perawatan Sepatu" },
-    { value: "koper", label: "Reparasi Koper" },
+  const categories: { value: CategoryType; label: string; icon: string }[] = [
+    { value: "semua", label: "Semua Hasil", icon: "🎯" },
+    { value: "sepatu", label: "Perawatan Sepatu", icon: "👟" },
+    { value: "koper", label: "Reparasi Koper", icon: "🧳" },
   ];
 
   return (
     <div>
       {/* Category Tabs */}
-      <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-        {categories.map((cat) => (
-          <button
-            key={cat.value}
-            onClick={() => setFilter(cat.value)}
-            className={`px-6 py-3 rounded-full text-sm font-bold border transition-all duration-300 ${
-              filter === cat.value
-                ? "bg-cu-primary text-white border-cu-primary shadow-lg shadow-cu-primary/20 scale-105"
-                : "bg-white text-gray-600 border-cu-light hover:bg-cu-light/20 hover:text-cu-dark hover:border-cu-primary/30"
-            }`}
-          >
-            {cat.label}
-          </button>
-        ))}
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "12px",
+          marginBottom: "48px",
+        }}
+      >
+        {categories.map((cat) => {
+          const isActive = filter === cat.value;
+          return (
+            <button
+              key={cat.value}
+              onClick={() => setFilter(cat.value)}
+              style={{
+                padding: "12px 28px",
+                borderRadius: "9999px",
+                fontSize: "0.8125rem",
+                fontWeight: 700,
+                border: isActive
+                  ? "2px solid #2979D4"
+                  : "2px solid #C8E6FA",
+                backgroundColor: isActive ? "#2979D4" : "#ffffff",
+                color: isActive ? "#ffffff" : "#6B7280",
+                cursor: "pointer",
+                transition: "all 0.3s ease",
+                boxShadow: isActive
+                  ? "0 4px 16px rgba(41,121,212,0.25)"
+                  : "none",
+                transform: isActive ? "scale(1.05)" : "scale(1)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <span style={{ fontSize: "1rem" }}>{cat.icon}</span>
+              {cat.label}
+            </button>
+          );
+        })}
       </div>
 
       {/* Gallery Grid */}
       {filteredItems.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
+            gap: "28px",
+          }}
+        >
           {filteredItems.map((item) => (
             <BeforeAfterCard
               key={item.id}
@@ -54,8 +88,18 @@ export default function GaleriGrid() {
           ))}
         </div>
       ) : (
-        <div className="text-center py-16 bg-white rounded-3xl border border-cu-light/50 p-8">
-          <p className="text-gray-400 text-base">Tidak ada portofolio dalam kategori ini.</p>
+        <div
+          style={{
+            textAlign: "center",
+            padding: "64px 32px",
+            backgroundColor: "#ffffff",
+            borderRadius: "24px",
+            border: "1px solid rgba(200,230,250,0.5)",
+          }}
+        >
+          <p style={{ color: "#9CA3AF", fontSize: "1rem" }}>
+            Tidak ada portofolio dalam kategori ini.
+          </p>
         </div>
       )}
     </div>

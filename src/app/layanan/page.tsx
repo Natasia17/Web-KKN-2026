@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Suspense } from "react";
 import LayananList from "@/components/LayananList";
 
@@ -11,37 +12,94 @@ export const metadata: Metadata = {
 export default function LayananPage() {
   return (
     <>
-      {/* Page Header */}
-      <section className="py-20 bg-gradient-to-br from-cu-dark to-cu-primary relative overflow-hidden">
-        {/* Decorative ambient blobs */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 right-1/4 w-72 h-72 bg-cu-accent/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl" />
+      {/* ====== HERO BANNER — Full-bleed ====== */}
+      <section
+        className="relative w-full overflow-hidden"
+        style={{ marginTop: "-64px", paddingTop: "0" }}
+      >
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/gallery/layanan-hero.png"
+            alt="CUCIJU Layanan Profesional"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(27,63,160,0.70) 0%, rgba(10,15,30,0.80) 100%)",
+            }}
+          />
         </div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 mb-3 bg-white/10 px-4 py-1.5 rounded-full backdrop-blur-sm border border-white/10">
-            <span className="w-1.5 h-1.5 rounded-full bg-cu-accent" />
-            <span className="text-white text-xs font-semibold tracking-wider uppercase">
-              Layanan Terbaik
-            </span>
-          </div>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+
+        {/* Content */}
+        <div
+          className="relative z-10 flex flex-col items-center justify-center text-center"
+          style={{
+            paddingTop: "160px",
+            paddingBottom: "80px",
+            minHeight: "380px",
+          }}
+        >
+          <h1
+            className="font-heading font-black text-white tracking-tight"
+            style={{
+              fontSize: "clamp(2.5rem, 6vw, 4.5rem)",
+              marginBottom: "16px",
+              lineHeight: "1.1",
+            }}
+          >
             Layanan Kami
           </h1>
-          <p className="text-blue-100 max-w-xl mx-auto text-base md:text-lg">
-            Kami menyediakan solusi perawatan sepatu &amp; perbaikan koper premium dengan harga terjangkau dan proses pengerjaan yang profesional.
-          </p>
+          <div
+            className="flex items-center justify-center"
+            style={{ gap: "10px" }}
+          >
+            <span
+              className="rounded-full"
+              style={{
+                width: "8px",
+                height: "8px",
+                backgroundColor: "#29B6F6",
+                display: "inline-block",
+              }}
+            />
+            <span
+              className="font-semibold uppercase text-white"
+              style={{
+                fontSize: "0.75rem",
+                letterSpacing: "0.2em",
+                opacity: 0.85,
+              }}
+            >
+              Solusi Premium untuk Sepatu & Koper Anda
+            </span>
+          </div>
         </div>
       </section>
-
+      
+      <div className="w-full h-3 md:h-8"></div>
       {/* Services Grid Section */}
-      <section className="py-16 md:py-24 bg-cu-white w-full flex justify-center">
+      <section 
+        style={{
+          paddingTop: "64px",
+          paddingBottom: "120px",
+          backgroundColor: "#ffffff",
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+          
           <Suspense fallback={
             <div className="flex justify-center items-center min-h-[300px]">
               <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-cu-primary"></div>
             </div>
+            
           }>
             <LayananList />
           </Suspense>
