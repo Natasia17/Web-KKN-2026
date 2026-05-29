@@ -44,8 +44,8 @@ export default function Footer() {
                 <svg className="w-5 h-5 text-gray-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 0 1-7.108-7.108c-.115-.44.05-.927.426-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
                 </svg>
-                <a href="https://wa.me/6281336466614" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-                  +62 813-3646-6614
+                <a href="https://wa.me/6281256580808" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                  +62 812-5658-0808
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -117,7 +117,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "16px" }} className="text-sm">
               {[
                 { href: "#", label: "Instagram" },
-                { href: "https://wa.me/6281336466614", label: "WhatsApp" },
+                { href: "https://wa.me/6281256580808", label: "WhatsApp" },
                 { href: "#", label: "TikTok" },
               ].map((link) => (
                 <li key={link.label}>

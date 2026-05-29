@@ -297,11 +297,9 @@ export default function Navbar() {
 
         {/* Scrollable Container for Drawer Content */}
         <div className="flex-grow overflow-y-auto my-4 pr-1 space-y-8 scrollbar-thin select-none">
-          
-          {/* Navigation Links inside Drawer (Only shown on mobile/tablet for usability) */}
           {/* Navigation Links inside Drawer (Only shown on mobile/tablet for usability) */}
           {/* SNEAKERI Reference Style */}
-          <nav className="md:hidden flex flex-col w-full -mx-6 mb-8" style={{ width: "calc(100% + 48px)", marginTop: "-16px" }}>
+          <nav className="flex flex-col w-full -mx-6 mb-8 md:!hidden" style={{ width: "calc(100% + 48px)", marginTop: "-16px" }}>
             {navLinks.map((link, idx) => {
               const active = isActive(link.href);
               return (
@@ -378,7 +376,7 @@ export default function Navbar() {
           </nav>
 
           {/* Desktop Brand Info & Details */}
-          <div style={{ flexDirection: "column", gap: "32px", paddingBottom: "24px" }} className="hidden md:flex">
+          <div style={{ display: "none", flexDirection: "column", gap: "32px", paddingBottom: "24px" }} className="md:!flex">
             
             {/* Header & Logo */}
             <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
@@ -454,7 +452,7 @@ export default function Navbar() {
                 </div>
                 <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
                   <svg className="w-4 h-4 text-cu-accent flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
-                  <p><span className="font-bold text-cu-dark">Phone:</span> +62 813-3646-6614</p>
+                  <p><span className="font-bold text-cu-dark">Phone:</span> +62 812-5658-0808</p>
                 </div>
               </div>
             </div>
@@ -480,7 +478,7 @@ export default function Navbar() {
               </svg>
             </a>
             {/* WhatsApp */}
-            <a href="https://wa.me/6281336466614" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-gray-50 hover:bg-green-600 hover:text-white flex items-center justify-center text-gray-400 transition-colors duration-250">
+            <a href="https://wa.me/6281256580808" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-gray-50 hover:bg-green-600 hover:text-white flex items-center justify-center text-gray-400 transition-colors duration-250">
               <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24">
                 <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.557-5.34 11.895-11.953 11.895-2.007 0-3.982-.505-5.754-1.47L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.625 1.449 5.376 0 9.738-4.364 9.742-9.742.002-2.624-1.018-5.09-2.873-6.947C16.29 2.058 13.82 1.037 11.998 1.036 6.622 1.036 2.26 5.4 2.256 10.78c0 1.543.468 3.056 1.353 4.394l-.99 3.614 3.738-.98c.002 0 .002 0 0 0z"/>
               </svg>

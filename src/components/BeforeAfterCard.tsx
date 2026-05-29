@@ -265,7 +265,7 @@ export default function BeforeAfterCard({
             Tanya Admin
           </p>
           <a
-            href={`https://wa.me/6281336466614?text=Halo%20CUCIJU%2C%20saya%20mau%20tanya%20tentang%20hasil%20kerja%20${encodeURIComponent(title)}`}
+            href={`https://wa.me/6281256580808?text=Halo%20CUCIJU%2C%20saya%20mau%20tanya%20tentang%20hasil%20kerja%20${encodeURIComponent(title)}`}
             target="_blank"
             rel="noreferrer"
             className="group/link"
