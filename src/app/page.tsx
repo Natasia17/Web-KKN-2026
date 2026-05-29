@@ -226,7 +226,7 @@ export default function HomePage() {
                 </p>
                 <div className="w-full h-3 md:h-10"></div>
                 <a
-                  href="https://wa.me/6281336466614?text=Halo%20CUCIJU%2C%20saya%20mau%20tanya%20soal%20layanan%20cuci%20sepatu"
+                  href="https://wa.me/6281256580808?text=Halo%20CUCIJU%2C%20saya%20mau%20tanya%20soal%20layanan%20cuci%20sepatu"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-3 bg-white text-[#2C5EAD] font-extrabold px-8 py-4 rounded-full text-base hover:bg-[#C4E2F5] hover:scale-105 transition-all duration-300 w-full sm:w-auto shadow-lg"

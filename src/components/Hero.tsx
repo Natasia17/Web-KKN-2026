@@ -93,7 +93,7 @@ export default function Hero() {
                 <span>✦</span> Lihat Layanan
               </Link>
               <a
-                href="https://wa.me/6281336466614"
+                href="https://wa.me/6281256580808"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-cu-black font-semibold text-sm hover:text-cu-primary transition-colors duration-200"

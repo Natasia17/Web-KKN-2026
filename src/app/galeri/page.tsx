@@ -500,7 +500,7 @@ export default function GaleriPage() {
             </Link>
 
             <a
-              href="https://wa.me/6281336466614?text=Halo%20CUCIJU%2C%20saya%20tertarik%20dengan%20layanan%20Anda"
+              href="https://wa.me/6281256580808?text=Halo%20CUCIJU%2C%20saya%20tertarik%20dengan%20layanan%20Anda"
               target="_blank"
               rel="noopener noreferrer"
               style={{

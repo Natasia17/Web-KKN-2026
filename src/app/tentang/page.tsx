@@ -558,7 +558,7 @@ export default function TentangPage() {
             </Link>
 
             <a
-              href="https://wa.me/6281336466614?text=Halo%20CUCIJU%2C%20saya%20mau%20tanya%20soal%20layanan"
+              href="https://wa.me/6281256580808?text=Halo%20CUCIJU%2C%20saya%20mau%20tanya%20soal%20layanan"
               target="_blank"
               rel="noopener noreferrer"
               style={{

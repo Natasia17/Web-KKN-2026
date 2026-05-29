@@ -59,7 +59,7 @@ export default function ServiceCard({ service }: { service: Service }) {
             </p>
           </div>
           <a
-            href={`https://wa.me/6281336466614?text=Halo%20CUCIJU%2C%20saya%20tertarik%20dengan%20layanan%20${encodeURIComponent(service.title)}`}
+            href={`https://wa.me/6281256580808?text=Halo%20CUCIJU%2C%20saya%20tertarik%20dengan%20layanan%20${encodeURIComponent(service.title)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="group/btn inline-flex items-center justify-center gap-2 border border-cu-primary/20 bg-cu-primary/5 text-cu-primary hover:bg-cu-primary hover:text-white text-sm font-semibold px-4 py-2.5 rounded-lg transition-all duration-300 mr-[4cm]"
